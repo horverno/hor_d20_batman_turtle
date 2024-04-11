@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(ros2_cpp_template)
+project(hor_d20_batman_turtle)
 
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
@@ -14,21 +14,23 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(turtlesim REQUIRED)
 
 set(ament_dependencies
   rclcpp
   std_msgs
   geometry_msgs
+  turtlesim
 )
 
-# add_executable(simple_sub_node src/print_pose.cpp)
-# ament_target_dependencies(simple_sub_node ${ament_dependencies} )
+add_executable(batman_draw src/batman_draw.cpp)
+ament_target_dependencies(batman_draw ${ament_dependencies} )
 
 install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME})
 
 install(TARGETS
-# simple_sub_node
+batman_draw
 DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
