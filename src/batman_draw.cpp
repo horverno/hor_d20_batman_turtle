@@ -3,18 +3,18 @@
 #include "geometry_msgs/msg/pose.hpp"
 #include "turtlesim/msg/pose.hpp"
 
-class VelocityPublisher : public rclcpp::Node
+class BatmanDraw : public rclcpp::Node
 {
 public:
-    VelocityPublisher() : Node("velocity_publisher"), count_(0)
+    BatmanDraw() : Node("batman_draw"), count_(0)
     {
         // auto sub_options = rclcpp::SubscriptionOptions();
         // timer_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive);
         // subsc_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive);
         // sub_options.callback_group = subsc_cb_group_;
         publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/turtle1/cmd_vel", 10);
-        // subscriber_ = this->create_subscription<turtlesim::msg::Pose>("/turtle1/pose", 10, std::bind(&VelocityPublisher::pose_callback, this, std::placeholders::_1)); //sub_options
-        timer_ = this->create_wall_timer(std::chrono::milliseconds(1), std::bind(&VelocityPublisher::loop, this)); //timer_cb_group_
+        // subscriber_ = this->create_subscription<turtlesim::msg::Pose>("/turtle1/pose", 10, std::bind(&BatmanDraw::pose_callback, this, std::placeholders::_1)); //sub_options
+        timer_ = this->create_wall_timer(std::chrono::milliseconds(1), std::bind(&BatmanDraw::loop, this)); //timer_cb_group_
         RCLCPP_INFO_STREAM(this->get_logger(), "Drawing a batman logo to turtlsesim.");
         loop();
     }
@@ -71,7 +71,7 @@ private:
 int main(int argc, char *argv[])
 {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<VelocityPublisher>());
+    rclcpp::spin(std::make_shared<BatmanDraw>());
     rclcpp::shutdown();
     return 0;
 }
