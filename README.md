@@ -2,7 +2,8 @@
 ROS 2 C++ package.  [![Static Badge](https://img.shields.io/badge/ROS_2-Humble-34aec5)](https://docs.ros.org/en/humble/)
 
 A package egy node-ból áll, ez a turtlesim szimulátorban képes a trajektóra kirajzolásával egy "Batman logo" előállítására. A hirdetett topic `geometry_msgs/twist` típusú. Megvalósítás `ROS 2 Humble` alatt.
-This package consist on one node. The aim of the node is to draw a simplified "Batman logo". The type of the published topic is `geometry_msgs/twist`. Builds in `ROS 2 Humble`.
+
+This package consist of one node. The aim of the node is to draw a simplified "Batman logo". The type of the published topic is `geometry_msgs/twist`. This package builds in `ROS 2 Humble`.
 
 ## Packages and build
 
